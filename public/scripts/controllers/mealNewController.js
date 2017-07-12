@@ -15,7 +15,7 @@ function MealsNewController ($location, $http)  {
     }
 
     function onCreateError(res) {
-      console.log("Failed to Create Post: ", res );
+      console.log("Failed to Create Meal: ", res );
     }
   }
 }

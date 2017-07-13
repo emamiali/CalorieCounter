@@ -54,7 +54,7 @@ function configRoutes($routeProvider, $locationProvider) {
       }
     })
     .when('/meals/:id', {
-      templateUrl: 'template/meals/show.html',
+      templateUrl: 'templates/meals/show.html',
       controller: 'MealsShowController',
       controllerAs: 'mealsShowCtrl',
       resolve: {

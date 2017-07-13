@@ -1,1 +1,9 @@
-you just went to meals page 
+<p ng-if="!mealsIndexCtrl.meals.length">No meal yet!! Add a new meal</p>
+
+<div ng-if="mealsIndexCtrl.meals.length">
+  <div ng-repeat="meal in mealsIndexCtrl.meals">
+    <p><strong><a ng-href="/meals/{{meal._id}}">{{meal.foodName}}</a></strong> - {{meal.time}} -- {{meal.user.displayName}}</p>
+  </div>
+</div>
+
+<a class="btn btn-primary btn-block" href="/meals/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>

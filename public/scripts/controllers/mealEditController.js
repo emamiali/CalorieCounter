@@ -16,7 +16,7 @@ function MealsEditController ($location, $http, $routeParams) {
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(res) {
-      $location.path("/meal/" + id);
+      $location.path("/meals/" + id);
     }
 
     function onUpdateError(res) {
@@ -26,7 +26,7 @@ function MealsEditController ($location, $http, $routeParams) {
 
   function destroy() {
     $http
-      .delete("/api/meals" + id)
+      .delete("/api/meals/" + id)
       .then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(res) {

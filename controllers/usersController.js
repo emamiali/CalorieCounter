@@ -1,20 +1,15 @@
-var auth = require('../middleware/auth'),
-    db = require('../models'),
+var auth = require('../middleware/auth');
+var db = require('../models'),
     User = db.User;
 
 function login(req, res) {
-  User.findOne({ email: req.body.email},
-  '+password', function (err, user) {
+  User.findOne({ email: req.body.email }, '+password', function (err, user) {
     if (!user) {
-      return res.status(401).send({
-        message: 'Invalid email or password.'
-      });
+      return res.status(401).send({ message: 'Invalid email or password.' });
     }
     user.comparePassword(req.body.password, function (err, isMatch) {
       if (!isMatch) {
-        return res.status(401).send({
-          message: 'Invalid email or password.'
-        });
+        return res.status(401).send({ message: 'Invalid email or password.' });
       }
       res.send({ token: auth.createJWT(user) });
     });
@@ -22,7 +17,7 @@ function login(req, res) {
 }
 
 function signup(req, res) {
-  User.findOne({ emai: req.body.email }, function (err, existingUser) {
+  User.findOne({ email: req.body.email }, function (err, existingUser) {
     if (existingUser) {
       return res.status(409).send({ message: 'Email is already taken.' });
     }
@@ -54,13 +49,10 @@ function updateCurrentUser(req, res) {
   });
 }
 
-
 function showCurrentUser (req, res) {
   User.findById(req.user_id, function (err, user) {
-    if (err) {
-    res.status(500).send({ message: err.message });
-    }
     res.send(user);
+    // res.send(user.populate('posts'));
   });
 }
 
@@ -69,4 +61,4 @@ module.exports = {
   login: login,
   updateCurrentUser: updateCurrentUser,
   showCurrentUser: showCurrentUser
-}
+};

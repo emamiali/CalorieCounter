@@ -1,4 +1,3 @@
-//use auth as middleware to authenticate user
 var jwt = require('jwt-simple'),
     moment = require('moment');
 
@@ -30,8 +29,8 @@ function ensureAuthenticated(req, res, next) {
 * Generate JSON Web Token
 */
 function createJWT(user) {
+  console.log(user);
   var payload = {
-    created: new Date(),
     user_id: user._id, // required by satellizer
     displayName: user.displayName,
     email: user.email,

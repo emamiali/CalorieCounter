@@ -52,5 +52,5 @@ app.get(['/', '/signup', '/login', '/logout', '/profile', '/meals*'], function (
 var port = process.env.PORT || 9000;
 
 app.listen(port, function() {
-  console.log('Are you working??? on 9000');
+  console.log('Calories Running on port: ', port);
 });

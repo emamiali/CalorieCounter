@@ -40,9 +40,7 @@ app.get('/api/meals/:id', mealCtrl.show);
 app.put('/api/meals/:id', auth.ensureAuthenticated, mealCtrl.update);
 app.delete('/api/meals/:id', auth.ensureAuthenticated, mealCtrl.destroy);
 
-
-app.get('/api/users/:user_id/meals', controllers.users.userMealIndex);
-app.get('/api/users', controllers.users.index);
+app.get('/api/users/:user_id/meals', mealCtrl.MealAndUser)
 
 //===================
 //== Catch All Routes

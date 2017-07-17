@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 var userSchema = new Schema({
   created: { type: Date, default: Date.now },
   updated: { type: Date },
-  meals: { type: Schema.Types.ObjectId, ref: "Meal" },
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
   displayName: String

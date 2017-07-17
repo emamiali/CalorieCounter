@@ -7,7 +7,7 @@ var auth = require('../middleware/auth'),
 function index(req, res) {
   Meal
     .find({})
-    .populate('_user')
+    .populate('user')
     .exec(function(err, meals) {
       if (err || !meals || !meals.length) {
         return res.status(404).send({ message: 'Meals not found.' });
@@ -15,6 +15,18 @@ function index(req, res) {
       res.send(meals);
     });
 }
+
+  function MealAndUser(req, res) {
+    var user_id = req.params.user_id;
+
+    Meal
+      .find({ user: user_id })
+      .exec(function(err, meals) {
+        // TODO: add error handing
+        console.log('all these meals should have the same user Id: ', meals);
+        res.send(meals)
+      })
+  }
 
 function create(req, res) {
   var new_meal = new Meal(req.body);
@@ -30,7 +42,7 @@ function create(req, res) {
 function show(req, res) {
   Meal
     .findById(req.params.id)
-    .populate('_user')
+    .populate('user')
     .exec(function(err, found_meal) {
       if (err || !found_meal) {
         return res.status(404).send({ message: 'Meal not found!' });
@@ -78,6 +90,7 @@ function destroy(req, res) {
 }
 
 module.exports = {
+  MealAndUser: MealAndUser,
   index: index,
   create: create,
   show: show,

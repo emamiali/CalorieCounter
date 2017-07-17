@@ -1,6 +1,7 @@
 var auth = require('../middleware/auth');
 var db = require('../models'),
-    User = db.User;
+    User = db.User,
+    Meal = db.Meal;
 
 function login(req, res) {
   User.findOne({ email: req.body.email }, '+password', function (err, user) {
@@ -56,7 +57,31 @@ function showCurrentUser (req, res) {
   });
 }
 
+function userMealIndex(req, res) {
+  console.log('this is the req from userMealIndex: ', req.params.user_id);
+  User
+    .findById(req.params.user_id)
+    .populate('meals')
+    .exec(function(err, user) {
+      // TODO: add the error handing for user,
+      res.send(user);
+    });
+}
+
+function index(req, res) {
+  User
+    .find({})
+    .populate('meals')
+    .exec(function(err, users) {
+      // TODO: add error handling
+      console.log('this is users from index of users: ', users);
+      res.send(users);
+    });
+}
+
 module.exports = {
+  userMealIndex: userMealIndex,
+  index: index,
   signup: signup,
   login: login,
   updateCurrentUser: updateCurrentUser,

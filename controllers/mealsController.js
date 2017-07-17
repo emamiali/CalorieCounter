@@ -7,7 +7,7 @@ var auth = require('../middleware/auth'),
 function index(req, res) {
   Meal
     .find({})
-    .populate('user')
+    .populate('_user')
     .exec(function(err, meals) {
       if (err || !meals || !meals.length) {
         return res.status(404).send({ message: 'Meals not found.' });
@@ -30,7 +30,7 @@ function create(req, res) {
 function show(req, res) {
   Meal
     .findById(req.params.id)
-    .populate('user')
+    .populate('_user')
     .exec(function(err, found_meal) {
       if (err || !found_meal) {
         return res.status(404).send({ message: 'Meal not found!' });

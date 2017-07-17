@@ -40,6 +40,11 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
+    .when('/users/:user_id/meals', {
+      templateUrl: 'templates/user/profileAndUser.html',
+      controller: 'MealsAndUserController',
+      controllerAs: 'mealUserCtrl'
+    })
     .when('/meals', {
       templateUrl: 'templates/meals/index.html',
       controller: 'MealsIndexController',

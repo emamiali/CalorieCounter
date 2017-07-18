@@ -57,8 +57,20 @@ function showCurrentUser (req, res) {
   });
 }
 
+function MealAndUser(req, res) {
+  var user_id = req.params.user_id;
+
+  Meal
+    .find({ user: user_id })
+    .exec(function(err, meals) {
+      // TODO: add error handing
+      console.log('all these meals should have the same user Id: ', meals);
+      res.send(meals)
+    })
+}
 
 module.exports = {
+  MealAndUser: MealAndUser,
   signup: signup,
   login: login,
   updateCurrentUser: updateCurrentUser,

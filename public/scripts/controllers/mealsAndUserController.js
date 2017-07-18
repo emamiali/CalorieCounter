@@ -12,7 +12,7 @@ function MealsAndUserController ($http, $location, $routeParams) {
 
   function getUserAndAllMeals() {
     $http
-      .get('/api/users/' + user_id + '/meals')
+      .get('api/users/596d2cd59c0d030b87e4f48e/meals')
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(res) {

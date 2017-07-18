@@ -40,13 +40,13 @@ app.get('/api/meals/:id', mealCtrl.show);
 app.put('/api/meals/:id', auth.ensureAuthenticated, mealCtrl.update);
 app.delete('/api/meals/:id', auth.ensureAuthenticated, mealCtrl.destroy);
 
-app.get('/api/users/:user_id/meals', mealCtrl.MealAndUser)
+app.get('/api/users/:user_id/meals', auth.ensureAuthenticated, usersCtrl.MealAndUser)
 
 //===================
 //== Catch All Routes
 //===================
 
-app.get(['/', '/signup', '/login', '/logout', '/profile', '/meals*'], function (req, res) {
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/meals*', '/users*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 

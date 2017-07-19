@@ -1,2 +1,22 @@
-hello from meal and user page
-I need to add the controller that is responsible for GETting the users with their meals
+<div class="meal_profile">
+  <div class="col-xs-6">
+    <h3>{{main.currentUser.displayName}}</h3>
+    <hr>
+    <p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
+    <p><strong>Email:</strong> {{main.currentUser.email}}</p>
+    <p><strong>Joined:</strong> {{main.currentUser.created}}</p>
+    <p><strong>Meals:</strong> {{ 0 }}</p>
+
+    <a ng-href="/profile" class="btn btn-info">Edit Profile</a>
+  </div>
+  <div class="col-xs-6">
+    <div ng-repeat="meal in mealUserCtrl.meals">
+      <ul class="meal_list_profile">
+        <li><strong>Food Name: </strong>{{meal.foodName}}</li>
+        <li><strong>Time: </strong>{{meal.time}}</li>
+        <li><strong>Calories: </strong>{{meal.calories}}</li>
+      </ul>
+    </div>
+    <a ng-href="meals/new" class="btn btn-info">Add a meal</a>
+  </div>
+</div>

@@ -3,16 +3,27 @@ html, body, ul, p, {
   padding: 0;
 }
 
+.body_main {
+  background-color: rgb(5, 129, 125);
+}
+
 .top-welcome {
   height: 800px;
   text-align: center;
   background-image: url("http://i.imgur.com/HIDQtgf.jpg");
   background-size: cover;
   margin-top: -20px;
-
 }
 
 .top-welcome-text {
   color: rgb(0, 0, 0);
   padding-top: 20%;
+}
+
+
+.meal_list_profile {
+  color: rgb(235, 235, 235);
+  background-color: rgb(5, 92, 6);
+  border: black 1px solid;
+
 }

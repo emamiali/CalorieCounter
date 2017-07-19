@@ -47,7 +47,7 @@
   <title>Count Calories</title>
 </head>
 
-<body ng-controller="MainController as main">
+<body ng-controller="MainController as main" class="body_main">
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -66,7 +66,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/users/{{main.currentUser.user_id}}/meals">{{main.currentUser.displayName}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
         </ul>
       </div>

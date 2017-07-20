@@ -11,7 +11,7 @@ function MealsNewController ($location, $http)  {
       .then(onCreateSuccess, onCreateError);
 
     function onCreateSuccess(res) {
-      $location.path('/meals/' + res.data._id)
+      $location.path('/users/' + res.data.user + '/meals')
     }
 
     function onCreateError(res) {

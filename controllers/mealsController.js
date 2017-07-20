@@ -16,17 +16,6 @@ function index(req, res) {
     });
 }
 
-  function MealAndUser(req, res) {
-    var user_id = req.params.user_id;
-
-    Meal
-      .find({ user: user_id })
-      .exec(function(err, meals) {
-        // TODO: add error handing
-        console.log('all these meals should have the same user Id: ', meals);
-        res.send(meals)
-      })
-  }
 
 function create(req, res) {
   var new_meal = new Meal(req.body);
@@ -90,7 +79,6 @@ function destroy(req, res) {
 }
 
 module.exports = {
-  MealAndUser: MealAndUser,
   index: index,
   create: create,
   show: show,

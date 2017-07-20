@@ -69,8 +69,39 @@ function MealAndUser(req, res) {
     })
 }
 
+function userMealShow(req, res) {
+  var meal_id = req.params.meal_id;
+
+  Meal
+    .findById(meal_id)
+    .populate('user')
+    .exec(function(err, found_meal) {
+      if (err || !found_meal) {
+        return res.status(404).send({ message: 'Meal not found!' });
+      }
+      res.send(found_meal);
+    });
+}
+
+function userMealUpdate(req, res) {
+  var query = {
+    _id: req.params.meal_id
+  }
+
+  Meal
+    .findOneAndUpdate(query, req.body) .exec(function(err, meal) {
+      if (err || !meal) {
+        return res.status(404).send({ message: !meal || err });
+      }
+      res.status(204).send();
+    });
+}
+
+
 module.exports = {
   MealAndUser: MealAndUser,
+  userMealShow: userMealShow,
+  userMealUpdate: userMealUpdate,
   signup: signup,
   login: login,
   updateCurrentUser: updateCurrentUser,

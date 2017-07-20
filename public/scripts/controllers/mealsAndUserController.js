@@ -3,10 +3,10 @@ MealsAndUserController.$inject = [ "$http", "$location", "$routeParams"];
 function MealsAndUserController ($http, $location, $routeParams) {
   var vm = this;
   vm.meals = {};
+  vm.arrayOfCalories = []
+  vm.sumOfAllCalories;
 
-  console.log("routeParams: ", $routeParams);
   var user_id = $routeParams.id;
-  console.log('this is the id from meals and user function', user_id);
 
   getUserAndAllMeals();
 
@@ -16,8 +16,16 @@ function MealsAndUserController ($http, $location, $routeParams) {
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(res) {
-      console.log(res.data);
       vm.meals = res.data;
+      vm.meals.forEach(function(meal) {
+        var eachCalories = meal.calories;
+        vm.arrayOfCalories.push(eachCalories);
+        vm.sumOfAllCalories = vm.arrayOfCalories.reduce(sum, 0);
+
+        function sum(a, b) {
+          return a + b;
+        }
+      })
     }
 
     function onGetError(res) {

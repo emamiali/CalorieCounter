@@ -8,11 +8,15 @@
     <p><strong>Meals:</strong> {{ 0 }}</p>
 
     <a ng-href="/profile" class="btn btn-info">Edit Profile</a>
+    <div>
+      <h3>Total: </h3>
+      <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
+    </div>
   </div>
   <div class="col-xs-6">
     <div ng-repeat="meal in mealUserCtrl.meals">
       <ul class="meal_list_profile">
-        <li><strong>Food Name: </strong>{{meal.foodName}}</li>
+        <li><strong>Food Name: </strong><a ng-href="/meals/{{meal._id}}">{{meal.foodName}}</a></li>
         <li><strong>Time: </strong>{{meal.time}}</li>
         <li><strong>Calories: </strong>{{meal.calories}}</li>
       </ul>

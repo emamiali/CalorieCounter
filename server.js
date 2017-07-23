@@ -41,7 +41,7 @@ app.put('/api/meals/:id', mealCtrl.update);
 app.delete('/api/meals/:id', auth.ensureAuthenticated, mealCtrl.destroy);
 
 app.get('/api/users/:user_id/meals', usersCtrl.MealAndUser);
-// app.post('/api/users/:user_id/meals/:meal_id', usersCtrl.userMealShow);
+app.post('/api/users/:user_id/meals/:meal_id', usersCtrl.userMealShow);
 app.get('/api/users/:user_id/meals/:meal_id', usersCtrl.userMealShow);
 app.put('/api/users/:user_id/meals/:meal_id', auth.ensureAuthenticated,  usersCtrl.userMealUpdate);
 

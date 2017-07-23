@@ -6,18 +6,19 @@ function MealsEditController ($location, $http, $routeParams) {
   vm.destroy = destroy;
   vm.meal = {}
 
-  var user_id;
-  var id = $routeParams.id;
-  console.log($routeParams);
+
+  var user_id = $routeParams.user_id;
+  var meal_id = $routeParams.meal_id;
   get();
 
   function update() {
     $http
-      .put('/api/meals/' + id, vm.meal)
+      .put('/api/meals/' + meal_id, vm.meal)
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(res) {
-      $location.path("/meals/" + id)
+      console.log('its hitting the succsess function');
+      $location.path("/users/" + user_id + '/meals');
     }
 
     function onUpdateError(res) {
@@ -27,7 +28,7 @@ function MealsEditController ($location, $http, $routeParams) {
 
   function destroy() {
     $http
-      .delete("/api/meals/" + id)
+      .delete("/api/meals/" + meal_id)
       .then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(res) {
@@ -41,12 +42,11 @@ function MealsEditController ($location, $http, $routeParams) {
 
   function get() {
     $http
-      .get('/api/users/' +  user_id + 'meals/' + meal_id)
+      .get('/api/users/' +  user_id + '/meals/' + meal_id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(res) {
       vm.meal = res.data;
-      console.log(vm.meal);
     }
 
     function onGetError(res) {

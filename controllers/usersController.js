@@ -84,6 +84,7 @@ function userMealShow(req, res) {
 }
 
 function userMealUpdate(req, res) {
+  console.log('this is req.body of update: ', req.body);
   var query = {
     _id: req.params.meal_id
   }

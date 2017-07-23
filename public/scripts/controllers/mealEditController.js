@@ -32,7 +32,7 @@ function MealsEditController ($location, $http, $routeParams) {
       .then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(res) {
-      $location.path('/');
+      $location.path("/users/" + user_id + '/meals');
     }
     function onDeleteError(res) {
       console.error("Failed to Delete Meal: ", res);
@@ -51,7 +51,7 @@ function MealsEditController ($location, $http, $routeParams) {
 
     function onGetError(res) {
       console.error("Failed to Get Meal: ", res);
-      $location.path("/");
+      $location.path("/users/" + user_id + '/meals');
     }
   }
 }

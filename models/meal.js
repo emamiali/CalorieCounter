@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
 
 var mealSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  foodName: String,
-  time: String,
-  calories: Number
+  foodName: { type: String, unique: true, lowercase: true },
+  time: { type: String, unique: true, lowercase: true },
+  calories: { type: Number, unique: true, lowercase: true }
 });
 
 var Meal = mongoose.model('Meal', mealSchema);

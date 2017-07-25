@@ -1,5 +1,5 @@
-<div class="meal_profile">
-  <div class="col-xs-6">
+<div class="row meal_profile">
+  <div class="col-xs-5 user-info">
     <h3>{{main.currentUser.displayName}}</h3>
     <hr>
     <p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
@@ -12,14 +12,17 @@
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
   </div>
-  <div class="col-xs-6">
+  <div class="col-xs-5">
     <div ng-repeat="meal in mealUserCtrl.meals">
       <ul class="meal_list_profile">
-        <li><strong>Food Name: </strong><a ng-href="/users/{{meal.user}}/meals/{{meal._id}}">{{meal.foodName}}</a></li>
+        <li><strong>Food Name: </strong>{{meal.foodName}}</li>
         <li><strong>Time: </strong>{{meal.time}}</li>
         <li><strong>Calories: </strong>{{meal.calories}}</li>
+        <br>
+        <a ng-href="/users/{{meal.user}}/meals/{{meal._id}}" class="btn btn-info pull-right" id="edit-meal-btn">Edit Meal</a>
+        <br>
       </ul>
     </div>
-    <a ng-href="meals/new" class="btn btn-info">Add a meal</a>
+    <a ng-href="meals/new" class="btn btn-info" id="add-new-meal">Add a meal</a>
   </div>
 </div>

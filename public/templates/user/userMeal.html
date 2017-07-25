@@ -12,10 +12,10 @@
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
   </div>
-  <div class="col-xs-5">
+  <div class="col-xs-5" ng-controller="mealUserCtrl">
 
     This should be: {{mealUserCtrl.meals}}
-    <div ng-repeat="meal in mealUserCtrl.meals">
+    <div ng-repeat="meal in meals">
       <ul class="meal_list_profile">
         <li><strong>Food Name: </strong>{{meal.foodName}}</li>
         <li><strong>Time: </strong>{{meal.time}}</li>

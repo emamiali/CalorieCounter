@@ -3,8 +3,9 @@ html, body, ul, p, {
   padding: 0;
 }
 
-.body_main {
-  background-color: rgb(5, 129, 125);
+a:link, a:visited, a:hover, a:active {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 
 .top-welcome {
@@ -20,10 +21,29 @@ html, body, ul, p, {
   padding-top: 20%;
 }
 
+.meal_profile {
+    background-image: url("http://i.imgur.com/x84LXL1.jpg");
+}
 
 .meal_list_profile {
-  color: rgb(235, 235, 235);
-  background-color: rgb(5, 92, 6);
   border: black 1px solid;
+}
 
+.edit-btn {
+  text-align: center;
+}
+
+.show-one-meal {
+  text-align: center;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.login-page {
+  height: 800px;
+  margin-top: -20px;
+  padding-bottom: 20px;
+  background-image: url("http://i.imgur.com/SWlHL8J.jpg");
+  background-size: cover;
 }

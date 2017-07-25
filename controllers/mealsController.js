@@ -22,7 +22,7 @@ function create(req, res) {
     new_meal.user = req.user_id;
     new_meal.save(function(err, new_meal) {
       if (err) {
-        return res.status(404).send({ message: 'Unable to create new Meal,' });
+        return res.status(404).send({ message: err.data });
       }
       res.send(new_meal);
     });

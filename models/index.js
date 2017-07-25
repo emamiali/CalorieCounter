@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/CaloriesCounter');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/CaloriesCounter');
 
 
 module.exports = {

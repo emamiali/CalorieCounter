@@ -23,10 +23,35 @@ a:link, a:visited, a:hover, a:active {
 
 .meal_profile {
     background-image: url("http://i.imgur.com/x84LXL1.jpg");
+    background-size: cover;
+    background-position: center fixed;
+    margin-top: -20px;
+    height: 800px;
+    font-family: 'Lemonada', cursive;
+    color: rgb(0, 0, 0);
+}
+
+.user-info {
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .meal_list_profile {
   border: black 1px solid;
+  margin: 10px;
+  font-size: 16px;
+}
+
+#edit-meal-btn {
+  margin-bottom: 15px;
+  margin-top: -15px;
+  margin-right: 10px;
+}
+
+#add-new-meal {
+  margin-left: 20px;
 }
 
 .edit-btn {

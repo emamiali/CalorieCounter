@@ -6,17 +6,19 @@ function MealsEditController ($location, $http, $routeParams) {
   vm.destroy = destroy;
   vm.meal = {}
 
-  var id = $routeParams.id;
 
+  var user_id = $routeParams.user_id;
+  var meal_id = $routeParams.meal_id;
   get();
 
   function update() {
     $http
-      .put('/api/meals/' + id, vm.meal)
+      .put('/api/meals/' + meal_id, vm.meal)
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(res) {
-      $location.path("/meals/" + id);
+      console.log('its hitting the succsess function');
+      $location.path("/users/" + user_id + '/meals');
     }
 
     function onUpdateError(res) {
@@ -26,11 +28,11 @@ function MealsEditController ($location, $http, $routeParams) {
 
   function destroy() {
     $http
-      .delete("/api/meals/" + id)
+      .delete("/api/meals/" + meal_id)
       .then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(res) {
-      $location.path('/');
+      $location.path("/users/" + user_id + '/meals');
     }
     function onDeleteError(res) {
       console.error("Failed to Delete Meal: ", res);
@@ -40,7 +42,7 @@ function MealsEditController ($location, $http, $routeParams) {
 
   function get() {
     $http
-      .get('/api/meals/' +  id)
+      .get('/api/users/' +  user_id + '/meals/' + meal_id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(res) {
@@ -49,7 +51,7 @@ function MealsEditController ($location, $http, $routeParams) {
 
     function onGetError(res) {
       console.error("Failed to Get Meal: ", res);
-      $location.path("/");
+      $location.path("/users/" + user_id + '/meals');
     }
   }
 }

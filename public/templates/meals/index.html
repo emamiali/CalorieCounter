@@ -1,14 +1,19 @@
-<div>
-  <p ng-if="!mealsIndexCtrl.meals.length">No meal yet!! Add a new meal</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <p ng-if="!mealsIndexCtrl.meals.length">No meal yet!! Add a new meal</p>
 
-  <div ng-if="mealsIndexCtrl.meals.length">
-    <div ng-repeat="meal in mealsIndexCtrl.meals">
-      <p><strong><a ng-href="/meals/{{meal._id}}">{{meal.foodName}}</a></strong> - {{meal.time}} -- {{meal.user.displayName}}</p>
+      <div ng-if="mealsIndexCtrl.meals.length">
+        <div ng-repeat="meal in mealsIndexCtrl.meals">
+          <p><strong><a ng-href="/meals/{{meal._id}}">{{meal.foodName}}</a></strong> - {{meal.time}} -- {{meal.user.displayName}}</p>
+        </div>
+      </div>
+
+      <a class="btn btn-primary btn-block" href="/meals/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
+    </div>
+    <div class="col-xs-4">
+      <h1>Total: </h1>
+      <h3>Total Calories: {{mealsIndexCtrl.sumOfAllCalories}}</h3>
     </div>
   </div>
-
-  <a class="btn btn-primary btn-block" href="/meals/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
-</div>
-<div>
-  {{mealsIndexCtrl.sumOfAllCalories}}
 </div>

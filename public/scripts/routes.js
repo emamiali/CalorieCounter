@@ -53,7 +53,7 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .when('/meals/:id', {
+    .when('/users/:user_id/meals/:meal_id', {
       templateUrl: 'templates/meals/show.html',
       controller: 'MealsShowController',
       controllerAs: 'mealsShowCtrl',
@@ -61,10 +61,18 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
-    .when('/meals/:id/edit', {
+    .when('/users/:user_id/meals/:meal_id/edit', {
       templateUrl: 'templates/meals/edit.html',
       controller: 'MealsEditController',
       controllerAs: 'mealsEditCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
+    })
+    .when('/users/:user_id/meals', {
+      templateUrl: 'templates/user/userMeal.html',
+      controller: 'MealsAndUserController',
+      controllerAs: 'mealUserCtrl',
       resolve: {
         loginRequired: loginRequired
       }

@@ -1,5 +1,5 @@
 angular
-  .module('calories', ['ngRoute', 'satellizer'])
+  .module('calories', ['ngRoute', 'satellizer', 'angularMoment'])
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)
@@ -9,5 +9,6 @@ angular
   .controller('MealsNewController', MealsNewController)
   .controller('MealsShowController', MealsShowController)
   .controller('MealsEditController', MealsEditController)
+  .controller('MealsAndUserController', MealsAndUserController)
   .service('UserService', UserService)
   .config(configRoutes);

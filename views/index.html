@@ -25,6 +25,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.13.4/satellizer.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js"></script>
+
 
   <!-- custom script (angular app) -->
   <script type="text/javascript" src="scripts/controllers/mainController.js "></script>
@@ -36,6 +39,7 @@
   <script type="text/javascript" src="scripts/controllers/mealEditController.js "></script>
   <script type="text/javascript" src="scripts/controllers/mealNewController.js "></script>
   <script type="text/javascript" src="scripts/controllers/mealShowController.js "></script>
+  <script type="text/javascript" src="scripts/controllers/mealsAndUserController.js "></script>
   <script type="text/javascript" src="scripts/services/userService.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
@@ -43,7 +47,7 @@
   <title>Count Calories</title>
 </head>
 
-<body ng-controller="MainController as main">
+<body ng-controller="MainController as main" class="body_main">
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -62,7 +66,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/users/{{main.currentUser.user_id}}/meals">{{main.currentUser.displayName}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
         </ul>
       </div>

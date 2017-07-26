@@ -12,19 +12,18 @@
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
   </div>
-  <div class="col-xs-5" ng-controller="mealUserCtrl">
-
-    This should be: {{meals}}
-    <div ng-repeat="meal in meals">
-      <ul class="meal_list_profile">
-        <li><strong>Food Name: </strong>{{meal.foodName}}</li>
-        <li><strong>Time: </strong>{{meal.time}}</li>
-        <li><strong>Calories: </strong>{{meal.calories}}</li>
-        <br>
-        <a ng-href="/users/{{meal.user}}/meals/{{meal._id}}" class="btn btn-info pull-right" id="edit-meal-btn">Edit Meal</a>
-        <br>
-      </ul>
-    </div>
+  <div class="col-xs-5">
+      <div ng-repeat="meal in mealUserCtrl.meals">
+        {{meals}}
+        <ul class="meal_list_profile">
+          <li><strong>Food Name: </strong>{{meal.foodName}}</li>
+          <li><strong>Time: </strong>{{meal.time}}</li>
+          <li><strong>Calories: </strong>{{meal.calories}}</li>
+          <br>
+          <a ng-href="/users/{{meal.user}}/meals/{{meal._id}}" class="btn btn-info pull-right" id="edit-meal-btn">Edit Meal</a>
+          <br>
+        </ul>
+      </div>
     <a ng-href="meals/new" class="btn btn-info" id="add-new-meal">Add a meal</a>
   </div>
 </div>

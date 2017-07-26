@@ -6,17 +6,19 @@ function MealsAndUserController ($http, $location, $routeParams) {
   vm.arrayOfCalories = []
   vm.sumOfAllCalories;
 
-  var user_id = $routeParams.id;
+  var user_id = $routeParams.user_id;
+  console.log($routeParams);
 
   getUserAndAllMeals();
 
   function getUserAndAllMeals() {
     $http
-      .get('api/users/596d2cd59c0d030b87e4f48e/meals')
+      .get('api/users/' + user_id + '/meals')
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(res) {
       vm.meals = res.data;
+      console.log(res.data);
       vm.meals.forEach(function(meal) {
         var eachCalories = meal.calories;
         vm.arrayOfCalories.push(eachCalories);

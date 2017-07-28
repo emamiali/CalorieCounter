@@ -69,23 +69,25 @@ a:link, a:visited, a:hover, a:active {
   margin-top: 20px;
   margin-left: 20px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .meal_list_profile {
   border: white 1px solid;
-  margin: 10px;
-  font-size: 16px;
+  margin: 5px;
+  font-size: 14px;
+  padding: 10px;
 }
 
 #edit-meal-btn {
   margin-bottom: 15px;
-  margin-top: -15px;
-  margin-right: 10px;
+  margin-top: -25px;
+  width: 100%;
+  padding: 2px;
 }
 
 #add-new-meal {
-  margin-left: 20px;
+  margin: 25px 0 0 20px;
 }
 
 .edit-btn {

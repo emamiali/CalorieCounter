@@ -24,7 +24,6 @@ function UserService($http, $q, $auth){
   function setCurrentUser(){
     var user = $auth.getPayload();
     if (user) {
-      console.log("::: User is Logged In! :::", {user: user, token: $auth.getToken()})
     } else {
       console.log("::: No JWT found, user is not logged in. :::")
     }

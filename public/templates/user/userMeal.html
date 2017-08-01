@@ -11,6 +11,12 @@
       <h3>Total: </h3>
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
+    <div>
+      <form ng-submit="mealUserCtrl.something()">
+      <input type="text" ng-model="mealUserCtrl.inputValue" placeholder="Search Food" class="form-control">
+      <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+    </div>
   </div>
   <div class="col-xs-5 user-meal">
     <a ng-href="meals/new" class="btn btn-info" id="add-new-meal">Add a meal</a>

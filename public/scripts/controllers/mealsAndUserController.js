@@ -5,11 +5,29 @@ function MealsAndUserController ($http, $location, $routeParams) {
   vm.meals = {};
   vm.arrayOfCalories = []
   vm.sumOfAllCalories;
+  vm.inputValue = '';
+  vm.something = function() {
+    console.log('is this what you typed in the search field: ', vm.inputValue);
+    vm.inputValue = ''; //this will reset the search box
+    $http
+      .get("https://api.nutritionix.com/v1_1/search/mcdonalds?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=00762645&appKey=key")
+      // .get("https://api.nutritionix.com/v1_1/search/" + vm.inputValue + "?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=00762645&appKey=key")
+      .then(onSearchSuccess, onSearchError);
+
+      function onSearchSuccess(res) {
+        console.log(res);
+      }
+
+      function onSearchError(err) {
+        console.error('something didnt work: ', err);
+      }
+
+  }
 
   var user_id = $routeParams.user_id;
-  console.log($routeParams);
 
   getUserAndAllMeals();
+
 
   function getUserAndAllMeals() {
     $http
@@ -18,7 +36,6 @@ function MealsAndUserController ($http, $location, $routeParams) {
 
     function onGetSuccess(res) {
       vm.meals = res.data;
-      console.log(res.data);
       vm.meals.forEach(function(meal) {
         var eachCalories = meal.calories;
         vm.arrayOfCalories.push(eachCalories);

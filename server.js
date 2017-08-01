@@ -1,5 +1,6 @@
 var express = require('express'),
     app = express(),
+    cors = require('cors')
     bodyParser = require('body-parser'),
     logger = require('morgan'),
     auth = require('./middleware/auth'),
@@ -17,6 +18,9 @@ app.use(express.static(__dirname + '/public'));
 
 // log api requests
 app.use(logger('dev'));
+
+//enable cors
+app.use(cors());
 
 //===============
 //== Auth Routes

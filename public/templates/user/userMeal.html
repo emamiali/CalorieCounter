@@ -12,8 +12,10 @@
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
     <div>
+      <div class="add-food-here">
+      </div>
       <form ng-submit="mealUserCtrl.something()">
-      <input type="text" ng-model="mealUserCtrl.inputValue" placeholder="Search Food" class="form-control">
+      <input type="text" ng-model="mealUserCtrl.inputValue" placeholder="Search Food" class="form-control" required=''>
       <input type="submit" value="Search" class="btn btn-primary">
     </form>
     </div>

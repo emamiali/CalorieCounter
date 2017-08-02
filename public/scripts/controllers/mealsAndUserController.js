@@ -1,6 +1,6 @@
-MealsAndUserController.$inject = [ "$http", "$location", "$routeParams"];
+MealsAndUserController.$inject = ["$http", "$location", "$routeParams"];
 
-function MealsAndUserController ($http, $location, $routeParams) {
+function MealsAndUserController($http, $location, $routeParams) {
   var vm = this;
   vm.meals = {};
   vm.arrayOfCalories = []
@@ -9,20 +9,37 @@ function MealsAndUserController ($http, $location, $routeParams) {
   vm.something = function() {
     console.log('is this what you typed in the search field: ', vm.inputValue);
     vm.inputValue = ''; //this will reset the search box
-    $http
-      .get("https://api.nutritionix.com/v1_1/search/mcdonalds?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=00762645&appKey=key")
-      // .get("https://api.nutritionix.com/v1_1/search/" + vm.inputValue + "?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=00762645&appKey=key")
-      .then(onSearchSuccess, onSearchError);
+    var endpoint = "https://api.nutritionix.com/v1_1/search/" + vm.inputValue + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=00762645&appKey=a674002142b2beb9937bc0b95a970825"
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: mealSearchSuccess,
+      error: mealSearchError
+    });
 
-      function onSearchSuccess(res) {
-        console.log(res);
-      }
+    function mealSearchSuccess(input) {
+      console.log(input);
+      var hits = input.hits;
+      hits.map(function(e) {
+        var retrievedName = e.fields.item_name,
+            retrievedCalories = e.fields.nf_calories,
+            retrievedServingSize = e.fields.nf_serving_size_qty,
+            retrievedTotalFat = e.fields.nf_total_fat;
 
-      function onSearchError(err) {
-        console.error('something didnt work: ', err);
-      }
+        $('.add-food-here').append(
+          '<fieldset>' +
+          '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Food Name : ' + '</strong>' + retrievedName + '</h4>' + '</div>' + '<div class="searchedCalories">' + '<h4>' + '<strong>' + 'Calories : ' + '</strong>' + retrievedCalories + '</h4>' + '</div>' +
+          '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Serving Size : ' + '</strong>' + retrievedServingSize + '</h4>' + '</div>' + '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Total Fat : ' + '</strong>' + retrievedTotalFat + '</h4>' + '</div>' + '</fieldset>'
+        );
+        $('.meal-input').empty();
+      });
+    }
 
+    function mealSearchError(err) {
+      console.error('this is the error from ajax call: ', err);
+    }
   }
+
 
   var user_id = $routeParams.user_id;
 

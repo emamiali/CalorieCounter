@@ -7,7 +7,6 @@ function MealsAndUserController($http, $location, $routeParams) {
   vm.sumOfAllCalories;
   vm.inputValue = '';
   vm.something = function() {
-    console.log('is this what you typed in the search field: ', vm.inputValue);
     vm.inputValue = ''; //this will reset the search box
     var endpoint = "https://api.nutritionix.com/v1_1/search/" + vm.inputValue + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=00762645&appKey=a674002142b2beb9937bc0b95a970825"
     $.ajax({

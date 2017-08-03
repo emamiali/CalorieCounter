@@ -128,6 +128,15 @@ a:link, a:visited, a:hover, a:active {
   background-size: cover;
 }
 
+.nutritionix-link a {
+  color: rgb(28, 163, 0);
+}
+
+.api-search {
+  margin: 10px;
+  padding: 10px;
+}
+
 footer {
   background-color: rgb(64, 64, 64);
   margin: 0;

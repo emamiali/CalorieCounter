@@ -17,7 +17,6 @@ function MealsAndUserController($http, $location, $routeParams) {
     });
 
     function mealSearchSuccess(input) {
-      console.log(input);
       var hits = input.hits;
       hits.map(function(e) {
         var retrievedName = e.fields.item_name,

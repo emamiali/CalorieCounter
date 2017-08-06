@@ -6,6 +6,8 @@ function MealsAndUserController($http, $location, $routeParams) {
   vm.arrayOfCalories = []
   vm.sumOfAllCalories;
   vm.inputValue = '';
+  vm.searchResults= {};
+
   vm.something = function() {
     vm.inputValue = ''; //this will reset the search box
     var endpoint = "https://api.nutritionix.com/v1_1/search/" + vm.inputValue + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=00762645&appKey=a674002142b2beb9937bc0b95a970825"
@@ -17,20 +19,8 @@ function MealsAndUserController($http, $location, $routeParams) {
     });
 
     function mealSearchSuccess(input) {
-      var hits = input.hits;
-      hits.map(function(e) {
-        var retrievedName = e.fields.item_name,
-            retrievedCalories = e.fields.nf_calories,
-            retrievedServingSize = e.fields.nf_serving_size_qty,
-            retrievedTotalFat = e.fields.nf_total_fat;
-
-        $('.add-food-here').append(
-          '<fieldset>' +
-          '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Food Name : ' + '</strong>' + retrievedName + '</h4>' + '</div>' + '<div class="searchedCalories">' + '<h4>' + '<strong>' + 'Calories : ' + '</strong>' + retrievedCalories + '</h4>' + '</div>' +
-          '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Serving Size : ' + '</strong>' + retrievedServingSize + '</h4>' + '</div>' + '<div class="searchedMealName">' + '<h4>' + '<strong>' + 'Total Fat : ' + '</strong>' + retrievedTotalFat + '</h4>' + '</div>' + '</fieldset>'
-        );
-        $('.meal-input').empty();
-      });
+      vm.searchResults = input.hits;
+      console.log(vm.searchResults);
     }
 
     function mealSearchError(err) {

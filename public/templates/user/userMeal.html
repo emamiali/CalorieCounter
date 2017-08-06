@@ -12,19 +12,22 @@
       <p><strong>Calories: </strong>{{mealUserCtrl.sumOfAllCalories}}</p>
     </div>
     <div>
-      <div class="add-food-here">
+      <div>
         <p class="nutritionix-link">Powered By: <a href="https://www.nutritionix.com/business/api">nutritionix API</a></p>
       </div>
+      <div ng-repeat="results in mealUserCtrl.searchResults">
+        <p><strong>Food Name: </strong>{{results.fields.item_name}}</p>
+        <p><strong>Calories: </strong>{{results.fields.nf_calories}}</p>
+      </div>
       <form ng-submit="mealUserCtrl.something()">
-      <input type="text" ng-model="mealUserCtrl.inputValue" placeholder="Search Food" class="form-control meal-input" required=''>
-      <input type="submit" value="Search" class="api-search btn btn-primary">
-    </form>
+        <input type="text" ng-model="mealUserCtrl.inputValue" placeholder="Search Food" class="form-control meal-input" required=''>
+        <input type="submit" value="Search" class="api-search btn btn-primary">
+      </form>
     </div>
   </div>
   <div class="col-xs-5 user-meal">
     <a ng-href="meals/new" class="btn btn-info" id="add-new-meal">Add a meal</a>
     <div ng-repeat="meal in mealUserCtrl.meals">
-      {{meals}}
       <ul class="meal_list_profile">
         <p><strong>Food Name: </strong>{{meal.foodName}}</p>
         <p><strong>Time: </strong>{{meal.time}}</p>

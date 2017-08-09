@@ -20,7 +20,6 @@ function MealsAndUserController($http, $location, $routeParams) {
 
     function mealSearchSuccess(input) {
       vm.searchResults = input.hits;
-      console.log(vm.searchResults);
     }
 
     function mealSearchError(err) {

@@ -1,11 +1,27 @@
-<div class="top-welcome">
-  <div class="top-welcome-text">
-    <h2>Welcome to Calorie Counter </h2>
-    <h3>Keep a track of your calories and meals</h3>
+<div class="welcome pure-g">
+  <div class="pure-u-12-24">
+    <form ng-submit="sc.signup()" class="pure-form pure-form-aligned pure-form-stacked form-signup">
+      <fieldset>
+        <legend>Lets Get Started!</legend>
+
+        <input type="text" class="pure-input-1" ng-model="sc.new_user.displayName" placeholder="Full Name">
+
+          <input type="text" class="pure-input-1" ng-model="sc.new_user.email" placeholder="Email">
+
+
+          <input type="password" class="pure-input-1" ng-model="sc.new_user.password" placeholder="Password">
+
+          <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
+
+    </fieldset>
+
+      </fieldset>
+    </form>
+    <br>
+    <p class="text-muted">Already have an account? <a href="/login">Log in here.</a></p>
   </div>
-</div>
-<div class="middle-welcome">
-  <div class="col-xs-6 welcome-image">
-    <img src="https://i.imgur.com/eRQ8Ko8.jpg" id="middle-welcome-image"></div>
-  <h3 class="col-xs-6" id="middle-welcome-text" >With this app you can track your calories and search for nutrition facts from Nutrionix seach engine</h3>
+  <div class="top-welcome-text pure-u-12-24">
+    <h2>Calorie Counter </h2>
+    <h3>Track Meals on the go</h3>
+  </div>
 </div>

@@ -12,36 +12,27 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-.top-welcome {
-  height: 800px;
-  text-align: center;
-  background-image: url("https://i.imgur.com/ixSP2GV.jpg");
-  margin-top: -20px;
-  background-size: cover;
+.welcome {
+width: 100%;
+height: 100vh;
 }
 
 .top-welcome-text {
   color: rgb(255, 255, 255);
-  padding-top: 20%;
+  background-image: url('../images/welcome-img.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vh;
+  text-align: center;
 }
 
-.middle-welcome {
-  background-color: rgb(0, 0, 0);
-  height: 400px;
+.form-signup {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-#middle-welcome-text {
-  margin-top: 120px;
-  color: rgb(255, 255, 255);
-}
-
-#middle-welcome-image {
-  margin-top: 25px;
-  height: 350px;
-  width: 70%;
-  margin-left: 40px;
-  position: static;
-}
 
 .navbar.navbar-default {
   background-color: rgb(64, 64, 64);
@@ -65,6 +56,11 @@ a:link, a:visited, a:hover, a:active {
   height: 750px;
   margin-bottom: 5px;
 }
+
+.navbar-brand {
+  text-decoration-color: rgb(255, 255, 255);
+}
+
 
 .meal_profile {
   background-image: url("https://i.imgur.com/xwBYhl9.jpg");

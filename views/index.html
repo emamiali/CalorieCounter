@@ -9,6 +9,8 @@
   <!-- bootstrap css -->
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
   <!-- font awesome -->
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower|Lemonada|Lobster|Quicksand" rel="stylesheet">
@@ -58,11 +60,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">My App</a>
+        <a class="navbar-brand" style="color: white" id="logo-link" href="/">CaloriesCounter</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>

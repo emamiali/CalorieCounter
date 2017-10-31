@@ -41,6 +41,25 @@ background-color: rgb(255, 245, 219);
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+@media all and (min-width: 1200px) {
+.font-control{
+    font-size: 60px;
+  }
+}
+
+@media all and (max-width: 1199px) and (min-width: 800px) {
+.font-control{
+    font-size: 4.4vw;
+  }
+}
+
+@media all and (max-width: 799px) and (min-width: 50px) {
+.font-control{
+    font-size: 3.4vw;
+  }
 }
 
 .form-signup {
@@ -55,6 +74,10 @@ background-color: rgb(255, 245, 219);
 .form-legend {
   margin-bottom: 33%;
   color: rgb(115, 205, 31);
+}
+
+.login-now p{
+  text-align: center;
 }
 
 

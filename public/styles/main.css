@@ -15,14 +15,31 @@ a:link, a:visited, a:hover, a:active {
 .welcome {
 width: 100%;
 height: 100vh;
+background-color: rgb(255, 245, 219);
 }
 
-.top-welcome-text {
+.welcome-msg {
   color: rgb(255, 255, 255);
   background-image: url('../images/welcome-img.png');
+  min-height: 100%;
   background-repeat: no-repeat;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+  position: relative;
+  top: 0;
+  left: 0;
   background-position: center;
-  background-size: 100vh;
+  display: table;
+}
+
+.welcome-text {
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
 }
 
@@ -31,6 +48,13 @@ height: 100vh;
   width: 50%;
   margin-left: 25%;
   margin-right: 25%;
+  border: none;
+  margin-top: 25%;
+}
+
+.form-legend {
+  margin-bottom: 33%;
+  color: rgb(115, 205, 31);
 }
 
 
@@ -39,6 +63,7 @@ height: 100vh;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+  margin-bottom: 0;
 }
 
 .navbar.navbar-default li a {
